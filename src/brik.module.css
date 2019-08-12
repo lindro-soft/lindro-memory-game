@@ -1,0 +1,20 @@
+.orangeBox {
+    display: inline-block;
+    color: #fff;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    background-color: #abacc4;
+    border: black solid 1px;
+    min-width: 200px;    
+    max-height: 200px;
+    min-height: 200px;
+    max-width: 200px;
+    margin: 10px;
+  }
+
+  .image {
+    max-width: 200px;
+    max-height: 200px;
+  }
