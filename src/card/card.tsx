@@ -18,7 +18,7 @@ const Card: React.FC<PropTypes> = ({
   onClickCard: onClickCard = f => f
 }) => {
   return (
-    <div className={styles.orangeBox}>
+    <div className={styles.card}>
       <img
         alt="Card"
         src={require(`./img/${showBack && !found ? backImage : image}`)}

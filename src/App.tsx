@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { v4 } from "uuid";
 import Board from "./board";
 import { shuffleArray } from "./helpers/shuffleArray";
+import classes from "./app.module.css";
 
 interface PropTypes {}
 
@@ -34,10 +35,10 @@ export default class App extends Component<PropTypes, State> {
     this.addTwoCards = this.addTwoCards.bind(this);
     this.turnClickedCard = this.turnClickedCard.bind(this);
 
-    // this.addTwoCards("unicorn-2128415_640.png");
-    // this.addTwoCards("panda-151605_640.png");
+    this.addTwoCards("unicorn-2128415_640.png");
+    this.addTwoCards("panda-151605_640.png");
     this.addTwoCards("Amanda.jpg");
-    // this.addTwoCards("girls-2814009_640.jpg");
+    this.addTwoCards("girls-2814009_640.jpg");
     this.addTwoCards("unicorn-4127195_640.png");
     this.addTwoCards("ice-cream-3571774_640.png");
     this.addTwoCards("wall-2794569_640.jpg");
@@ -136,9 +137,9 @@ export default class App extends Component<PropTypes, State> {
   render() {
     const { cards, totalClicks } = this.state;
     return (
-      <div>
+      <div className={classes.board}>
         <Board cards={cards} onClickCard={this.clickCard} />
-        <div>Card turns: {totalClicks}</div>
+        <div className={classes.totalClicks}>Card turns: {totalClicks}</div>
       </div>
     );
   }

@@ -1,0 +1,10 @@
+.totalClicks {
+  background-color: white;
+  border: black solid 1px;
+  margin: 10px;
+  width: 100px;
+}
+
+.board {
+  max-width: 25cm;
+}
