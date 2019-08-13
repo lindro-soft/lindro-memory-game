@@ -15,6 +15,5 @@
     "noEmit": true,
     "jsx": "react"
   },
-  "include": ["src"],
-  "files": ["./typings/uuid/uuid.d.ts"]
+  "include": ["src"]
 }

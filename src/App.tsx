@@ -16,12 +16,14 @@ interface CardType {
 interface State {
   cards: CardType[];
   clicks: number;
+  totalClicks: number;
 }
 
 export default class App extends Component<PropTypes, State> {
   state: State = {
     cards: [],
-    clicks: 0
+    clicks: 0,
+    totalClicks: 0
   };
 
   constructor(props: PropTypes) {
@@ -34,23 +36,23 @@ export default class App extends Component<PropTypes, State> {
 
     // this.addTwoCards("unicorn-2128415_640.png");
     // this.addTwoCards("panda-151605_640.png");
-    // this.addTwoCards("Amanda.jpg");
+    this.addTwoCards("Amanda.jpg");
     // this.addTwoCards("girls-2814009_640.jpg");
     this.addTwoCards("unicorn-4127195_640.png");
     this.addTwoCards("ice-cream-3571774_640.png");
     this.addTwoCards("wall-2794569_640.jpg");
     this.addTwoCards("anthropomorphized-animals-1296354_640.png");
     this.state = {
-      clicks: this.state.clicks,
+      ...this.state,
       cards: shuffleArray(this.state.cards)
     };
   }
 
   clickCard(id: string, showBack: boolean) {
-    const { cards, clicks } = this.state;
+    const { cards, clicks, totalClicks } = this.state;
     const clickedCards = cards.filter(card => card.id === id);
 
-    if (clickedCards[0].showBack) {
+    if (clickedCards[0].showBack && !clickedCards[0].found) {
       if (clicks > 1) {
         this.setState({ clicks: 1 });
         this.showBackOfAllCards();
@@ -58,6 +60,7 @@ export default class App extends Component<PropTypes, State> {
         this.setState({ clicks: clicks + 1 });
       }
       this.turnClickedCard(id, showBack, this.onCardTurned);
+      this.setState({ totalClicks: totalClicks + 1 });
     }
   }
 
@@ -116,7 +119,7 @@ export default class App extends Component<PropTypes, State> {
 
   addCard(image: string) {
     this.state = {
-      clicks: this.state.clicks,
+      ...this.state,
       cards: [
         ...this.state.cards,
         {
@@ -131,11 +134,11 @@ export default class App extends Component<PropTypes, State> {
   }
 
   render() {
-    const { cards, clicks } = this.state;
+    const { cards, totalClicks } = this.state;
     return (
       <div>
         <Board cards={cards} onClickCard={this.clickCard} />
-        <div>clicks: {clicks}</div>
+        <div>Card turns: {totalClicks}</div>
       </div>
     );
   }
