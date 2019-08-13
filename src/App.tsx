@@ -3,13 +3,30 @@ import { v4 } from "uuid";
 import Board from "./board";
 import { shuffleArray } from "./helpers/shuffleArray";
 
-export default class App extends Component {
-  constructor(props) {
+interface PropTypes {}
+
+interface CardType {
+  id: string;
+  image: string;
+  showBack: boolean;
+  backImage: string;
+  found: boolean;
+}
+
+interface State {
+  cards: CardType[];
+  clicks: number;
+}
+
+export default class App extends Component<PropTypes, State> {
+  state: State = {
+    cards: [],
+    clicks: 0
+  };
+
+  constructor(props: PropTypes) {
     super(props);
-    this.state = {
-      cards: [],
-      clicks: 0
-    };
+
     this.clickCard = this.clickCard.bind(this);
     this.addCard = this.addCard.bind(this);
     this.addTwoCards = this.addTwoCards.bind(this);
@@ -29,9 +46,9 @@ export default class App extends Component {
     };
   }
 
-  clickCard(id, showBack) {
+  clickCard(id: string, showBack: boolean) {
     const { cards, clicks } = this.state;
-    const clickedCards = cards.filter(card => card.id == id);
+    const clickedCards = cards.filter(card => card.id === id);
 
     if (clickedCards[0].showBack) {
       if (clicks > 1) {
@@ -40,11 +57,11 @@ export default class App extends Component {
       } else {
         this.setState({ clicks: clicks + 1 });
       }
-      this.turnClickedCard(id, showBack);
+      this.turnClickedCard(id, showBack, this.onCardTurned);
     }
   }
 
-  turnClickedCard(id, showBack) {
+  turnClickedCard(id: string, showBack: boolean, onCardTurned: () => void) {
     this.setState(
       prevState => ({
         cards: prevState.cards.map(card =>
@@ -56,17 +73,31 @@ export default class App extends Component {
               }
         )
       }),
-      () => {
-        const exposedCards = this.state.cards.filter(card => !card.showBack);
-        console.log("exposedCards: ", exposedCards);
-        if (exposedCards.length == 2) {
-          if (exposedCards[0].image == exposedCards[1].image) {
-            alert("Tillykke");
-          }
-        }
-        console.log("all cards: ", exposedCards.length);
-      }
+      onCardTurned
     );
+  }
+
+  private onCardTurned() {
+    const exposedCards = this.state.cards.filter(card => !card.showBack);
+    console.log("exposedCards: ", exposedCards);
+    if (exposedCards.length === 2) {
+      if (exposedCards[0].image === exposedCards[1].image) {
+        this.markExposedCardsAsFound();
+      }
+    }
+  }
+
+  private markExposedCardsAsFound() {
+    this.setState(prevState => ({
+      cards: prevState.cards.map(card =>
+        card.showBack
+          ? card
+          : {
+              ...card,
+              found: true
+            }
+      )
+    }));
   }
 
   showBackOfAllCards() {
@@ -78,12 +109,12 @@ export default class App extends Component {
     }));
   }
 
-  addTwoCards(image) {
+  addTwoCards(image: string) {
     this.addCard(image);
     this.addCard(image);
   }
 
-  addCard(image) {
+  addCard(image: string) {
     this.state = {
       clicks: this.state.clicks,
       cards: [

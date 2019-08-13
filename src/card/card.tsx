@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./brik.module.css";
+import styles from "./card.module.css";
 
 interface PropTypes {
   showBack: boolean;
