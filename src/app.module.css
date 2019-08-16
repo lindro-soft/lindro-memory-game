@@ -6,5 +6,11 @@
 }
 
 .board {
-  max-width: 25cm;
+  max-width: 1000px;
+}
+
+@media (max-width: 800px) {
+  .board {
+    max-width: 400px;
+  }
 }
