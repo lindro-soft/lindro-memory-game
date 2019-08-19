@@ -3,6 +3,7 @@ import { v4 } from "uuid";
 import Board from "./board";
 import { shuffleArray } from "./helpers/shuffleArray";
 import classes from "./app.module.css";
+import Button from "./button";
 
 interface PropTypes {}
 
@@ -31,6 +32,7 @@ export default class App extends Component<PropTypes, State> {
     super(props);
 
     this.clickCard = this.clickCard.bind(this);
+    this.clickButton = this.clickButton.bind(this);
     this.addCard = this.addCard.bind(this);
     this.addTwoCards = this.addTwoCards.bind(this);
     this.turnClickedCard = this.turnClickedCard.bind(this);
@@ -47,6 +49,17 @@ export default class App extends Component<PropTypes, State> {
       ...this.state,
       cards: shuffleArray(this.state.cards)
     };
+  }
+
+  clickButton() {
+    this.setState(
+      {
+        clicks: 0,
+        totalClicks: 0,
+        cards: shuffleArray(this.state.cards)
+      },
+      this.resetCards
+    );
   }
 
   clickCard(id: string, showBack: boolean) {
@@ -113,6 +126,16 @@ export default class App extends Component<PropTypes, State> {
     }));
   }
 
+  resetCards() {
+    this.setState(prevState => ({
+      cards: prevState.cards.map(card => ({
+        ...card,
+        showBack: true,
+        found: false
+      }))
+    }));
+  }
+
   addTwoCards(image: string) {
     this.addCard(image);
     this.addCard(image);
@@ -139,7 +162,10 @@ export default class App extends Component<PropTypes, State> {
     return (
       <div className={classes.board}>
         <Board cards={cards} onClickCard={this.clickCard} />
-        <div className={classes.totalClicks}>Card turns: {totalClicks}</div>
+        <div>
+          <Button onClickButton={this.clickButton} value="Nyt spil" />
+          <span className={classes.totalClicks}>Card turns: {totalClicks}</span>
+        </div>
       </div>
     );
   }

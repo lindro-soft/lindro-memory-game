@@ -1,8 +1,10 @@
 .totalClicks {
   background-color: white;
-  border: black solid 1px;
+  border: black solid 2px;
   margin: 10px;
   width: 100px;
+  padding: 5px;
+  margin-top: 5px;
 }
 
 .board {
@@ -12,5 +14,6 @@
 @media (max-width: 800px) {
   .board {
     max-width: 400px;
+    color: #5c6898;
   }
 }

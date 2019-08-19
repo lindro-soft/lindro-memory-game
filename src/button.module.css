@@ -25,14 +25,25 @@
   transform: translateY(3px);
 }
 
+:root {
+  --button-margin: 10px;
+}
+
+@media (max-width: 800px) {
+  :root {
+    --button-margin: 4px;
+  }
+}
+
 .btn {
   /* default for <button>, but useful for <a> */
+  cursor: pointer;
   display: inline-block;
   text-align: center;
   text-decoration: none;
 
   /* create a small space when buttons wrap on 2 lines */
-  margin: 2px 0;
+  margin-left: var(--button-margin);
 
   /* invisible border (will be colored on hover/focus) */
   border: solid 1px transparent;

@@ -7,13 +7,12 @@ interface PropTypes {
   found: boolean;
   image: string;
   onClickCard: (event: React.MouseEvent<HTMLImageElement>) => void;
-  id: string;
 }
 
 const Card: React.FC<PropTypes> = ({
   showBack = true,
-  backImage,
   found,
+  backImage,
   image,
   onClickCard: onClickCard = f => f
 }) => {

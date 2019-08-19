@@ -23,7 +23,6 @@ const Board: React.FC<PropTypes> = ({
       image={card.image}
       showBack={card.showBack}
       backImage={card.backImage}
-      id={card.id}
       key={card.id}
       found={card.found}
       onClickCard={() => onClickCard(card.id, !card.showBack)}
