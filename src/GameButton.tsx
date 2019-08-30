@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./button.module.css";
+import styles from "./styling/Button.module.css";
 
 interface PropTypes {
   value: string;
   onClickButton: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button: React.FC<PropTypes> = ({
+const GameButton: React.FC<PropTypes> = ({
   value,
   onClickButton: onClickButton = f => f
 }) => {
@@ -17,4 +17,4 @@ const Button: React.FC<PropTypes> = ({
   );
 };
 
-export default Button;
+export default GameButton;

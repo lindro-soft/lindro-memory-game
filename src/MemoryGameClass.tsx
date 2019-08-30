@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { v4 } from "uuid";
-import Board from "./board";
+import Board from "./Board";
 import { shuffleArray } from "./helpers/shuffleArray";
-import classes from "./app.module.css";
-import Button from "./button";
+import classes from "./styling/App.module.css";
+import GameButton from "./GameButton";
 
 interface PropTypes {}
 
@@ -163,7 +163,7 @@ export default class App extends Component<PropTypes, State> {
       <div className={classes.board}>
         <Board cards={cards} onClickCard={this.clickCard} />
         <div>
-          <Button onClickButton={this.clickButton} value="Nyt spil" />
+          <GameButton onClickButton={this.clickButton} value="Nyt spil" />
           <span className={classes.totalClicks}>Card turns: {totalClicks}</span>
         </div>
       </div>
