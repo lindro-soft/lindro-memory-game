@@ -1,44 +1,36 @@
+@import "./Constants.scss";
+
 :root {
-  --button-margin: 10px;
+  --button-margin: #{$big-button-margin};
 }
 
-@media (max-width: 800px) {
+@media (max-width: $big-board-width) {
   :root {
-    --button-margin: 4px;
+    --button-margin: #{$small-button-margin};
   }
 }
 
 .btn {
-  /* default for <button>, but useful for <a> */
   cursor: pointer;
   display: inline-block;
   text-align: center;
   text-decoration: none;
-
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
   margin-left: var(--button-margin);
-
-  /* invisible border (will be colored on hover/focus) */
   border: solid 1px transparent;
   border-radius: 4px;
-
-  /* size comes from text & padding (no width/height) */
   padding: 5px 10px;
-
-  /* make sure colors have enough contrast! */
   color: #ffffff;
   background-color: #9555af;
 }
 
-/* inverse colors on hover */
 .btn:hover {
   color: #9050aa;
   border-color: currentColor;
   background-color: white;
 }
 
-/* make sure we have a visible focus ring */
 .btn:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.5),

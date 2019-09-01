@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styling/Button.module.css";
+import styles from "./styling/Button.module.scss";
 
 interface PropTypes {
   value: string;

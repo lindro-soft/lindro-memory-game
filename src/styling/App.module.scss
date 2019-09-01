@@ -1,3 +1,5 @@
+@import "./Constants.scss";
+
 .totalClicks {
   background-color: white;
   border: solid 1px white;
@@ -11,12 +13,13 @@
 }
 
 .board {
-  max-width: 800px;
+  max-width: $big-board-width;
 }
 
-@media (max-width: 800px) {
+@media (max-width: $big-board-width) {
   .board {
-    max-width: 400px;
+    max-width: $small-board-width;
+    min-width: $small-board-width;
     color: #5c6898;
   }
 }

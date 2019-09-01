@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { v4 } from "uuid";
 import Board from "./Board";
 import { shuffleArray } from "./helpers/shuffleArray";
-import classes from "./styling/App.module.css";
+import classes from "./styling/App.module.scss";
 import GameButton from "./GameButton";
 
 interface PropTypes {}

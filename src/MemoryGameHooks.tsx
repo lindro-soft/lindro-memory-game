@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useReducer } from "react";
 import { v4 } from "uuid";
 import Board from "./Board";
-import classes from "./styling/App.module.css";
+import classes from "./styling/App.module.scss";
 import GameButton from "./GameButton";
 import GameReducer from "./reducers/GameReducer";
 
@@ -94,8 +94,8 @@ function MemoryGameHooks() {
     addTwoCards("unicorn-2128415_640.png");
     addTwoCards("panda-151605_640.png");
     addTwoCards("Amanda.jpg");
-    addTwoCards("girls-2814009_640.jpg");
-    addTwoCards("unicorn-4127195_640.png");
+    addTwoCards("stjernekrigerne.png");
+    addTwoCards("Vigga.jpg");
     addTwoCards("ice-cream-3571774_640.png");
     addTwoCards("wall-2794569_640.jpg");
     addTwoCards("anthropomorphized-animals-1296354_640.png");
