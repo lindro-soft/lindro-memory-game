@@ -1,9 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./MemoryGameClass";
+import MemoryGameClass from "./MemoryGameClass";
+import MemoryGameHooks from "./MemoryGameHooks";
 
-it("renders without crashing", () => {
+it("renders MemoryGameClass without crashing", () => {
   const div = document.createElement("div");
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<MemoryGameClass />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});
+
+it("renders MemoryGameHooks without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(<MemoryGameHooks />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

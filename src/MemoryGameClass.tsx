@@ -163,7 +163,7 @@ export default class App extends Component<PropTypes, State> {
       <div className={classes.board}>
         <Board cards={cards} onClickCard={this.clickCard} />
         <div>
-          <GameButton onClickButton={this.clickButton} value="Nyt spil" />
+          <GameButton onClickButton={this.clickButton} value="New Game" />
           <span className={classes.totalClicks}>Card turns: {totalClicks}</span>
         </div>
       </div>
