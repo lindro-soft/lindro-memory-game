@@ -40,9 +40,9 @@ export default class App extends Component<PropTypes, State> {
     this.addTwoCards("unicorn-2128415_640.png");
     this.addTwoCards("panda-151605_640.png");
     this.addTwoCards("Amanda.jpg");
-    this.addTwoCards("girls-2814009_640.jpg");
-    this.addTwoCards("unicorn-4127195_640.png");
-    this.addTwoCards("ice-cream-3571774_640.png");
+    this.addTwoCards("stjernekrigerne.png");
+    this.addTwoCards("Vigga.jpg");
+    this.addTwoCards("fdm.png");
     this.addTwoCards("wall-2794569_640.jpg");
     this.addTwoCards("anthropomorphized-animals-1296354_640.png");
     this.state = {
