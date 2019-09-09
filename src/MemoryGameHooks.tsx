@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import { v4 } from "uuid";
 import Board from "./Board";
 import classes from "./styling/App.module.scss";
@@ -6,7 +6,6 @@ import GameButton from "./GameButton";
 import GameReducer from "./reducers/GameReducer";
 
 function MemoryGameHooks() {
-  const [query] = useState<string>();
   const [{ cards, clicks, totalClicks }, dispatch] = useReducer(GameReducer, {
     cards: [],
     clicks: 0,
@@ -96,17 +95,17 @@ function MemoryGameHooks() {
     addTwoCards("Amanda.jpg");
     addTwoCards("stjernekrigerne.png");
     addTwoCards("Vigga.jpg");
-    addTwoCards("ice-cream-3571774_640.png");
+    addTwoCards("fdm.png");
     addTwoCards("wall-2794569_640.jpg");
     addTwoCards("anthropomorphized-animals-1296354_640.png");
     shuffleCards();
-  }, [query]);
+  }, []);
 
   return (
     <div className={classes.board}>
       <Board cards={cards} onClickCard={clickCard} />
       <div>
-        <GameButton onClickButton={clickButton} value="Nyt spil" />
+        <GameButton onClickButton={clickButton} value="New game" />
         <span className={classes.totalClicks}>Card turns: {totalClicks}</span>
       </div>
     </div>
