@@ -1,3 +1,6 @@
+## About the project
+This game was developed to learn some of the React library and typescript. It includes a version of the mail component created using hooks and a version which is a classic react class.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
