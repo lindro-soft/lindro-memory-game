@@ -1,4 +1,4 @@
-@import "./Constants.scss";
+@use "./Constants" as *;
 
 :root {
   --button-margin: #{$big-button-margin};

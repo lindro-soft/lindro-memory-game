@@ -1,6 +1,12 @@
 import React from "react";
 import styles from "./card.module.css";
 
+const images = import.meta.glob("./img/*", { eager: true, import: "default" }) as Record<string, string>;
+
+function resolveImage(filename: string): string {
+  return images[`./img/${filename}`] ?? "";
+}
+
 interface PropTypes {
   showBack: boolean;
   backImage: string;
@@ -16,11 +22,12 @@ const Card: React.FC<PropTypes> = ({
   image,
   onClickCard: onClickCard = f => f
 }) => {
+  const src = resolveImage(showBack && !found ? backImage : image);
   return (
     <div className={styles.card}>
       <img
         alt="Card"
-        src={require(`./img/${showBack && !found ? backImage : image}`)}
+        src={src}
         className={styles.image}
         onClick={onClickCard}
       />

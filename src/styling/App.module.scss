@@ -1,4 +1,4 @@
-@import "./Constants.scss";
+@use "./Constants" as *;
 
 .totalClicks {
   background-color: white;

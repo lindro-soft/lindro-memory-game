@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import { v4 } from "uuid";
-import Board from "./Board";
+import Board from "./board";
 import classes from "./styling/App.module.scss";
 import GameButton from "./GameButton";
 import GameReducer from "./reducers/GameReducer";
